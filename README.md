@@ -13,8 +13,8 @@
     - `description`: A description of this `property`.  
  - `polygon`: A polygon to draw on the map.  
     - `vertex`: A vertex of the `polygon`, drawn from `vertex`-to-`vertex`, clockwise in order of definition.  
-            - `x-coord`: the x-coordinate of this `vertex`.  
-            - `y-coord`: the y-coordinate of this `vertex`.  
+        - `x-coord`: the x-coordinate of this `vertex`.  
+        - `y-coord`: the y-coordinate of this `vertex`.  
     - `description`: A description of this `polygon`.  
  - `point`: A point to draw on the map.   
     - `x-coord`: the x-coordinate of this `point`.  
