@@ -1,19 +1,21 @@
 """
-calculates the geographical center of coordinates
+calculates the geographical center of the convex hull of coordinates
 """
 
-import statistics
+import numpy as np
+from scipy.spatial import ConvexHull
+from matplotlib.path import Path
 
 exit = False
-latcoords = []
-loncoords = []
+coords = np.empty((0, 2))
 
+# retrieve coordinates from user
 print('\nInput coordinates as prompted below. Type \"exit\" when complete.\n')
 while(not exit):
     latitude = input('Latitude (or exit): ')
     if latitude == "exit":
         break
-    try: latcoords.append(float(latitude))
+    try: float(latitude)
     except ValueError:
         print("Invalid latitude.\n")
         continue
@@ -21,9 +23,16 @@ while(not exit):
     longitude = input('Longitude: ')
     if longitude == "exit":
         break
-    try: loncoords.append(float(longitude))
+    try: float(longitude)
     except ValueError:
         print("Invalid longitude. Re-enter coordinate pair.\n")
         continue
+    coords = np.append(coords, np.array([[float(latitude), float(longitude)]]), axis=0)
 
-print("\nGeographical Center: " + str(statistics.mean(latcoords)) + ", " + str(statistics.mean(loncoords)) + "\n")
+# calculate the convex hull of points
+hull = ConvexHull(coords)
+
+# create a path object from the hull vertices
+hull_path = Path(coords[hull.vertices])
+
+print("\nGeographical Center of \"Convex Hull\": " + str(np.mean(hull_path.vertices[:,0])) + ", " + str(np.mean(hull_path.vertices[:,1])) + "\n")
