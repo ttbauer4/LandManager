@@ -1,5 +1,5 @@
 """
-calculates the geographical center of the convex hull of coordinates
+calculates the geographical center of coordinates
 """
 
 import statistics
