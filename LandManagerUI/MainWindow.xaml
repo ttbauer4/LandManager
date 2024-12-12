@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:LandManagerUI"
         mc:Ignorable="d"
         Title="Land Manager" Height="450" Width="800">
-    <Grid>
 
-    </Grid>
+        <Polygon Points="450.35,224.4375 450.45,223.4375 416.85,224.3375 417.25,206.2375 316.45,208.8375 315.35,244.9375 416.45,242.4375 416.85,225.3375" 
+        Fill="Blue" />
+
 </Window>
